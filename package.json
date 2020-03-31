@@ -1,0 +1,25 @@
+{
+  "name": "acme-monorepo",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "compile": "tsc --build tsconfig.build.json",
+    "compile:clean": "tsc --build tsconfig.build.json --clean",
+    "watch": "tsc --build tsconfig.build.json --watch",
+    "build": "lerna run build --stream --scope=@acme/{web,api}",
+    "build:web": "lerna run build --stream --scope=@acme/web",
+    "build:api": "lerna run build --stream --scope=@acme/api",
+    "build:utils": "yarn workspace @acme/utils build",
+    "start:web": "lerna run start --stream --scope=@acme/web",
+    "start:api": "lerna run start --stream --scope=@acme/api"
+  },
+  "devDependencies": {
+    "lerna": "^3.20.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
+  }
+}

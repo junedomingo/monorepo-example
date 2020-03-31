@@ -1,0 +1,11 @@
+{
+  "name": "@acme/web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "description": "Acme web directory",
+  "author": "June Domingo <junedomingo@gmail.com>",
+  "scripts": {
+    "build": "rimraf ../../dist/api && tsc"
+  }
+}

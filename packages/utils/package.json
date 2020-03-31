@@ -1,0 +1,13 @@
+{
+  "name": "@acme/utils",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "description": "Acme utils directory",
+  "author": "June Domingo <junedomingo@gmail.com>",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "build:watch": "rimraf ./dist && tsc -w"
+  }
+}
