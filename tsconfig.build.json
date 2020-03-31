@@ -4,5 +4,12 @@
   },
   "files": [],
   "include": [],
-  "references": [{ "path": "./packages/utils" }]
+  "references": [
+    {
+      "path": "./packages/api"
+    },
+    {
+      "path": "./packages/utils"
+    }
+  ]
 }

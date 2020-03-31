@@ -7,15 +7,16 @@
     ]
   },
   "scripts": {
-    "compile": "tsc --build tsconfig.build.json",
-    "compile:clean": "tsc --build tsconfig.build.json --clean",
-    "watch": "tsc --build tsconfig.build.json --watch",
-    "build": "lerna run build --stream --scope=@acme/{web,api}",
-    "build:web": "lerna run build --stream --scope=@acme/web",
-    "build:api": "lerna run build --stream --scope=@acme/api",
-    "build:utils": "yarn workspace @acme/utils build",
+    "clean:node_modules": "rimraf ./node_modules **/{dist,node_modules}/",
+    "clean:tsbuildinfo": "rimraf ./packages/*/tsconfig*tsbuildinfo",
+    "clean": "npm run clean:node_modules && npm run clean:tsbuildinfo",
+    "build": "tsc --build tsconfig.build.json",
+    "build:watch": "tsc --build tsconfig.build.json --watch",
+    "build:clean": "tsc --build tsconfig.build.json --clean",
     "start:web": "lerna run start --stream --scope=@acme/web",
-    "start:api": "lerna run start --stream --scope=@acme/api"
+    "start:api": "lerna run start --stream --scope=@acme/api",
+    "release": "lerna version --conventional-commits",
+    "postinstall": "npm run clean:tsbuildinfo && npm run build"
   },
   "devDependencies": {
     "lerna": "^3.20.2",
