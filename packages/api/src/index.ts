@@ -4,11 +4,12 @@ import http from 'http';
 import { buildSchema } from 'type-graphql';
 import * as dotenv from 'dotenv';
 import { ApolloServer } from 'apollo-server-express';
+import { sayHello } from '@acme/utils';
 dotenv.config();
 
 import { MovieResolver } from './resolvers';
 
-import { sayHello } from '@acme/utils';
+console.log(sayHello());
 
 (async () => {
   const PORT = process.env.PORT || 8001;
@@ -28,8 +29,6 @@ import { sayHello } from '@acme/utils';
       optionsSuccessStatus: 200,
     },
   });
-
-  console.log(sayHello());
 
   const httpServer = http.createServer(app);
 
